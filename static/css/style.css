@@ -1,0 +1,94 @@
+.container-fluid{
+    font-family: gtamstandard,Arial,Helvetica,Nimbus Sans L,sans-serif;
+
+}
+body{
+    color:#676767;
+    background: #fefefe;
+}
+#cup-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+#tea{
+    display: block;
+    height: 100px;
+    width:100px;
+}
+#footer-row{
+    border-top: lightgrey solid 2px;
+}
+
+.card{
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.card-body{
+    background-image: url("../images/Flag_of_the_Ottoman_Empire.svg");
+    background-position: center;
+}
+.card-body-console{
+  padding: 0.75rem 1.25rem;
+}
+
+.sidebar{
+    background-image: url("../images/chair-bg.jpeg");
+    background-repeat: repeat;
+    height: 500px;
+}
+
+#white-carousel{
+    color:darkslategrey;
+}
+.outline-text{
+    -webkit-text-stroke: 0.2px black;
+}
+dd, dt{
+    text-align: center;
+    margin: 10px auto 10px auto
+}
+.custom-input{
+    max-width: 45%;
+}
+
+.flex{
+    display:flex;
+}
+
+.block{
+    display:block;
+}
+.bordered{
+    padding: 5px 5px 5px 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.slide-in{
+    animation: 1s ease-out 0s 1 slideIn;
+}
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.login-body{
+    background-color: #E3F2FD;
+}

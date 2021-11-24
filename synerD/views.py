@@ -84,8 +84,9 @@ def log_in(request):
 
 
 def console(request):
-    if request.session['staff'] is False:
-        redirect('/')
+    print(request.session['staff'] )
+    if request.session['staff'] is False or request.session['staff'] is None:
+        return redirect("/")
     template = loader.get_template('synerd/admin.html')
 
     return HttpResponse(template.render( request=request))

@@ -19,3 +19,4 @@ dj-database-url
 charset-normalizer
 certifi
 asgiref
+whitenoise

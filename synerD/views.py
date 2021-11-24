@@ -22,23 +22,26 @@ def index(request):
     subscribers = pd.DataFrame(list(Subscriber.objects.all().values()))
     organizations = pd.DataFrame(list(Organization.objects.all().values()))
     context = {}
-    subscribers['user_id'] = subscribers['user_id'].apply(getusername)
-    subscribers = subscribers.rename(columns={'user_id': 'User',
+    if subscribers.__len__() > 0:
+        subscribers['user_id'] = subscribers['user_id'].apply(getusername)
+        subscribers = subscribers.rename(columns={'user_id': 'User',
                                               'subscriptiontypecode_id': 'Subscription Type',
                                               'servicecode_id':'Service Type',
                                               'startdate':'Start Date'
                                               })
-    organizations = organizations.rename(columns={'organizationname':'Organization Name',
-                                                  'description':'Description',
-                                                  'datejoined':'Date Joined',
+        context['subdf'] = subscribers.to_html(table_id='sub_table', classes='table table-striped', index=False)
+
+    if organizations.__len__() > 0:
+        organizations = organizations.rename(columns={'organizationname':'Organization Name',
+                                                      'description':'Description',
+                                                      'datejoined':'Date Joined',
                                                   'address1':'Address',
                                                   'address2':'Address',
                                                   'city':'City',
                                                   'state':'State',
                                                   'zipcode':'Zip Code',
                                                   'phonenumber':'Phone Number'})
-    context['subdf'] = subscribers.to_html(table_id='sub_table',classes='table table-striped',index=False)
-    context['memdf'] = organizations.to_html(table_id='org_table',classes='table table-striped',index=False)
+        context['memdf'] = organizations.to_html(table_id='org_table',classes='table table-striped',index=False)
     return render(request, 'synerd/index.html', context)
 
 def signup(request):

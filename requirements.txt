@@ -11,7 +11,7 @@ six
 setuptools
 pytz
 python-dateutil
-psychop2
+psycopg2
 pip
 idna
 Django

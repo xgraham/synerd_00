@@ -1,1 +1,1 @@
-web: gunicorn synerd.wsgi
+web: gunicorn synerD.wsgi

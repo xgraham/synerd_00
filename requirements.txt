@@ -5,3 +5,17 @@ pandas
 numpy
 djangorestframework
 requests
+urllib3
+sqlparse
+six
+setuptools
+pytz
+python-dateutil
+psychop2
+pip
+idna
+Django
+dj-database-url
+charset-normalizer
+certifi
+asgiref

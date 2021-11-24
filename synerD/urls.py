@@ -20,7 +20,13 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('login/', views.login, name='login'),
+    path('login/', views.log_in, name='login'),
+    path('signup/', views.signup, name='signup'),
     path('console/', views.console, name='admin'),
+    path('console/office', views.office, name='admin'),
+    path('console/officer', views.officer, name='admin'),
+    path('console/organization', views.organization, name='admin'),
+    path('console/orgmember', views.orgmember, name='admin'),
+    path('console/subscriber', views.subscriber, name='admin'),
     path('api/', include('synerD.backend.urls'))
 ]

@@ -11,45 +11,11 @@
     <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static '/css/style.css' %}" rel="stylesheet">
 
+
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <div style="max-height: 15em;max-width: 100%">
-                <img src="../../static/images/svg.svg" style="object-fit: scale-down;max-height: 150px">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="page-header" style="justify-items: center;align-items: center">
-                <h1 style="justify-content: center;align-content: center; text-align: center; margin-top: 20px">
-                    <p>Chair-Y-Tea!</p>
-                    <small style="font-size: x-large">Your source for all things<br> Chairs 'Y' Tea</small>
-                </h1>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <ul class="nav">
-                <li class="nav-item  ml-md-auto">
-                    <a class="nav-link active" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
-                       data-toggle="dropdown">My Account</a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="">Login</a>
-                        <div class="dropdown-divider">
-                        </div>
-                        <a class="dropdown-item" href="login">Sign Up</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+{% include 'synerd/header.html' %}
     <div class="row">
         <div class="col-md-12">
             <div class="carousel slide" id="carousel">
@@ -64,7 +30,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active outline-text" style="width: 100%">
                         <img class="d-block w-100" alt="A picture of chairs"
-                             src="../../static/images/chars16-5.jpeg" >
+                             src="../../static/images/chars16-5.jpeg">
                         <div class="carousel-caption">
                             <h4>
                                 The Finest Chairs
@@ -95,7 +61,7 @@
                                 Chairy-Tea
                             </h4>
                             <p>
-                               Browse our finest selection of Teas,
+                                Browse our finest selection of Teas,
                                 probably not the finest teas in the world but the chair-y-tea-est!
                             </p>
                         </div>
@@ -120,7 +86,7 @@
                         "ui-droppable-hover": "ui-state-hover"
                     },
                     drop: function (event, ui) {
-                        window.location.href = "login";
+                        window.location.href = "signup";
                     }
                 });
             });
@@ -129,12 +95,19 @@
     <div class="row">
         <div class="col-md-8">
             <div class="tabbable" id="tabs">
-                <ul class="nav nav-tabs" >
+                <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active show" href="#tab1" data-toggle="tab" aria-expanded="true">Mission Statement</a>
+                        <a class="nav-link active show" href="#tab1" data-toggle="tab" aria-expanded="true">Mission
+                            Statement</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tab2" data-toggle="tab" aria-expanded="false">Let me sign up!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tab3" data-toggle="tab" aria-expanded="false">Member List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tab4" data-toggle="tab" aria-expanded="false">Organization List</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -161,13 +134,16 @@
                                 Again 'Y'?
                             </dt>
                             <dd>
-                                No hablamos español, <br> pero <br> sabemos que incluso los hispanohablantes pueden disfrutar de un buen asiento o una taza de té.
+                                No hablamos español, <br> pero <br> sabemos que incluso los hispanohablantes pueden
+                                disfrutar de un buen asiento o una taza de té.
                             </dd>
                             <dt>
-                               ...And Finally The Tea
+                                ...And Finally The Tea
                             </dt>
                             <dd>
-                                Our underpaid researchers have found that the markup on tea is great enough to support our executives' lavish lifestyles while still being able to donate an equal amount of product!
+                                Our underpaid researchers have found that the markup on tea is great enough to support
+                                our executives' lavish lifestyles while still being able to donate an equal amount of
+                                product!
                             </dd>
                         </dl>
                     </div>
@@ -176,6 +152,28 @@
                         <div style="text-align: center"><span>Want to sign up? Steep the tea!</span></div>
                         <img src="../../static/images/tea.png" id="tea" class="draggable ui-widget-content">
                         <img src="../../static/images/cup.png" id="cup-img">
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        <script>
+                            $(document).ready(function () {
+                                $('#sub_table').DataTable();
+                            });
+                        </script>
+                        {% autoescape off %}
+                            {{ subdf }}
+                        {% endautoescape %}
+                    </div>
+                    <div class="tab-pane" id="tab4">
+                        <script>
+                            $(document).ready(function () {
+                                $('#org_table').DataTable();
+                            });
+                        </script>
+                        {% autoescape off %}
+                            {{ memdf }}
+                        {% endautoescape %}
+
+
                     </div>
                 </div>
             </div>
@@ -188,7 +186,7 @@
                 </h5>
                 <div class="card-body">
                     <p class="card-text" style="align-content: center">
-<!--                        <img alt="Ottoman Flag" src="images/Flag_of_the_Ottoman_Empire.svg" style="z-index:1;height: 240px;">-->
+                        <!--                        <img alt="Ottoman Flag" src="images/Flag_of_the_Ottoman_Empire.svg" style="z-index:1;height: 240px;">-->
                         <img src="../../static/images/ottoman.svg" style=" z-index: 2">
 
                     </p>
@@ -203,7 +201,7 @@
         <div class="col-md-4">
 
             <address>
-                <strong>Alex G</strong><br> 627 Rutledge Ave,<br> Charleston SC 29403<br>
+                <strong>Alex G</strong><br> 123 Test Ave,<br> TestLand TL 91210<br>
                 (123) 456-7890
             </address>
         </div>
@@ -225,7 +223,7 @@
             </ul>
         </div>
         <div class="col-md-4">
-    <br>
+            <br>
             <ul style="list-style-type:none;">
                 <li>
                     About Us
@@ -247,5 +245,7 @@
 
 <script src="../../static/js/bootstrap.min.js"></script>
 <script src="../../static/js/scripts.js"></script>
+
 </body>
 </html>
+
